@@ -11,6 +11,7 @@ import beans.Usuario;
 import statics.statics;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.JTextField;
@@ -94,11 +95,19 @@ public class CadastrarUsuario extends JFrame {
 		btnCadastrar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				String user = txtUsuario.getText();
-				String nome = txtNome.getText();
-				String pss = String.valueOf(passUserConfirm.getPassword());
+				String user = txtUsuario.getText().trim();
+				String nome = txtNome.getText().trim();
+				String pss = String.valueOf(pssUser.getPassword()).trim();
+				String pssConfirm = String.valueOf(passUserConfirm.getPassword()).trim();
 				boolean isAdmin = rdbtnAdmin.isSelected();
 
+				
+				if (!pss.equals(pssConfirm) || user.equals("") || pss.equals("") || pssConfirm.equals("") || nome.equals("")) {
+					JOptionPane.showMessageDialog(null, "Informe todas informações necessarias!!");
+					return;
+				}
+				
+				
 				Usuario usuario = new Usuario();
 				usuario.setUsuario(user);
 				usuario.setNome(nome);
@@ -107,7 +116,13 @@ public class CadastrarUsuario extends JFrame {
 
 				statics.users.put(user, usuario);
 
-				System.out.println(rdbtnAdmin.isSelected());
+				JOptionPane.showMessageDialog(null, "Cadastrado com sucesso");
+				
+				txtUsuario.setText("");
+				txtNome.setText("");
+				pssUser.setText("");
+				passUserConfirm.setText("");
+				rdbtnAdmin.setSelected(false);
 			}
 		});
 		btnCadastrar.setBounds(33, 414, 133, 23);
