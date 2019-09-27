@@ -12,5 +12,7 @@ public class STATICS {
 	public static Map<String , Usuario> USERS;
 	public static List<String> TIMES;
 	public static List<Jogo> JOGOS;
+	public static List<Jogo> SEMI_FINAL;
+	public static List<Jogo> FINAL;
 	public static List<Grupo> GRUPOS;
 }

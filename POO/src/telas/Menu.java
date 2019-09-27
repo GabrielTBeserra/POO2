@@ -13,6 +13,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import Controllers.FinalizarJogos;
+import Controllers.SortearJogos;
 import STATICS.STATICS;
 import beans.Grupo;
 import beans.Usuario;
@@ -73,7 +75,8 @@ public class Menu extends JFrame {
 
 		JMenuItem definirNomeTorneio = new JMenuItem("Definir nome torneio");
 		JMenuItem mntmAdicionarTime = new JMenuItem("Adicionar time");
-		JMenuItem mntmGerarJogos = new JMenuItem("Finalizar torneio");
+		JMenuItem mntmSortearTimes = new JMenuItem("Sortear times");
+		JMenuItem mntmFinalizarJogos = new JMenuItem("Finalizar jogos");
 
 		mntmAdicionarTime.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
@@ -117,11 +120,26 @@ public class Menu extends JFrame {
 				JOptionPane.showMessageDialog(null, "Torneio definido!");
 			}
 		});
+		
+		mntmSortearTimes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				new SortearJogos();
+			}
+		});
+		
+		mntmFinalizarJogos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				new FinalizarJogos();
+			}
+		});
 
+		
+		
 		mnAdmin.add(definirNomeTorneio);
 		mnAdmin.add(novoUsuario);
 		mnAdmin.add(mntmAdicionarTime);
-		mnAdmin.add(mntmGerarJogos);
+		mnAdmin.add(mntmSortearTimes);
+		mnAdmin.add(mntmFinalizarJogos);
 
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

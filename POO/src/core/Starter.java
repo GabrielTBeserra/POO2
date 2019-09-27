@@ -17,6 +17,7 @@ public class Starter {
 		STATICS.GRUPOS = new ArrayList<Grupo>();
 		STATICS.TIMES = new ArrayList<String>();
 		STATICS.JOGOS = new ArrayList<Jogo>();
+		STATICS.SEMI_FINAL = new ArrayList<Jogo>();
 		
 		new AutoFill();
 		
