@@ -18,9 +18,9 @@ public class Starter {
 		STATICS.TIMES = new ArrayList<String>();
 		STATICS.JOGOS = new ArrayList<Jogo>();
 		STATICS.SEMI_FINAL = new ArrayList<Jogo>();
-		
+
 		new AutoFill();
-		
+
 		Login login = new Login();
 		login.setVisible(true);
 	}

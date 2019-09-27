@@ -29,9 +29,6 @@ public class CadastrarUsuario extends JFrame {
 	private JPasswordField pssUser;
 	private JPasswordField passUserConfirm;
 
-	/**
-	 * Create the frame.
-	 */
 	public CadastrarUsuario() {
 		setResizable(false);
 		setTitle("CADASTRAR USUARIO");
@@ -86,29 +83,22 @@ public class CadastrarUsuario extends JFrame {
 		passUserConfirm.setBounds(33, 313, 214, 28);
 		contentPane.add(passUserConfirm);
 
-		
-		
-		
 		DefaultListModel model = new DefaultListModel();
-		
-		
-		List<Grupo> a = STATICS.GRUPOS;
-		
-		
-		for (Grupo grupo : a) {
-			if(!(grupo.getUsuario().size() > 5)) {
-				model.addElement(grupo.getNome()); 
+
+		List<Grupo> listaDeGrupos = STATICS.GRUPOS;
+
+		for (Grupo grupo : listaDeGrupos) {
+			if (!(grupo.getUsuario().size() > 5)) {
+				model.addElement(grupo.getNome());
 			}
 		}
-		
+
 		JList list = new JList();
 		list.setModel(model);
 		list.setBounds(318, 113, 153, 228);
-		
+
 		contentPane.add(list);
-		
-		
-		
+
 		JLabel lblGruposDisponiveis = new JLabel("Grupos disponiveis");
 		lblGruposDisponiveis.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblGruposDisponiveis.setBounds(318, 77, 153, 28);
@@ -122,25 +112,28 @@ public class CadastrarUsuario extends JFrame {
 				String nome = txtNome.getText().trim();
 				String pss = String.valueOf(pssUser.getPassword()).trim();
 				String pssConfirm = String.valueOf(passUserConfirm.getPassword()).trim();
-				
 
-				
-				if (!pss.equals(pssConfirm) || user.equals("") || pss.equals("") || pssConfirm.equals("") || nome.equals("")) {
+				if (STATICS.USERS.containsKey(user)) {
+					JOptionPane.showMessageDialog(null, "Usuario ja existente!!");
+					return;
+				}
+
+				if (!pss.equals(pssConfirm) || user.equals("") || pss.equals("") || pssConfirm.equals("")
+						|| nome.equals("") || list.getSelectedIndex() == -1) {
 					JOptionPane.showMessageDialog(null, "Informe todas informações necessarias!!");
 					return;
 				}
-				
-				
+
 				Usuario usuario = new Usuario();
 				usuario.setUsuario(user);
 				usuario.setNome(nome);
 				usuario.setSenha(pss);
 				usuario.setGrupo(STATICS.GRUPOS.get(list.getSelectedIndex()));
-				
+
 				STATICS.USERS.put(user, usuario);
 
 				JOptionPane.showMessageDialog(null, "Cadastrado com sucesso");
-				
+
 				txtUsuario.setText("");
 				txtNome.setText("");
 				pssUser.setText("");
@@ -149,7 +142,6 @@ public class CadastrarUsuario extends JFrame {
 		});
 		btnCadastrar.setBounds(33, 364, 214, 23);
 		contentPane.add(btnCadastrar);
-		
 
 	}
 }

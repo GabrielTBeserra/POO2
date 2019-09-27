@@ -120,21 +120,19 @@ public class Menu extends JFrame {
 				JOptionPane.showMessageDialog(null, "Torneio definido!");
 			}
 		});
-		
+
 		mntmSortearTimes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 				new SortearJogos();
 			}
 		});
-		
+
 		mntmFinalizarJogos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 				new FinalizarJogos();
 			}
 		});
 
-		
-		
 		mnAdmin.add(definirNomeTorneio);
 		mnAdmin.add(novoUsuario);
 		mnAdmin.add(mntmAdicionarTime);
@@ -148,7 +146,7 @@ public class Menu extends JFrame {
 
 		JLabel lblNewLabel = new JLabel(usuario.getNome());
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel.setBounds(49, 16, 105, 14);
+		lblNewLabel.setBounds(37, 16, 105, 14);
 		contentPane.add(lblNewLabel);
 
 		JLabel lblNewLabel_1 = new JLabel("Ola");

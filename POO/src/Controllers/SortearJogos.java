@@ -1,7 +1,6 @@
 package Controllers;
 
 import java.util.Collections;
-import java.util.List;
 
 import javax.swing.JOptionPane;
 
@@ -37,8 +36,6 @@ public class SortearJogos {
 		STATICS.JOGOS.add(jogo4);
 
 		new Tabela().setVisible(true);
-		
-		
 
 	}
 }

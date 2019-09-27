@@ -16,7 +16,7 @@ public class Tabela extends JFrame {
 
 	public Tabela() {
 		List<String> times = STATICS.TIMES;
-		
+
 		setResizable(false);
 		setTitle("CADASTRAR USUARIO");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -25,52 +25,52 @@ public class Tabela extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JLabel time1 = new JLabel(times.get(0));
 		time1.setBounds(10, 30, 77, 20);
 		contentPane.add(time1);
-		
+
 		JLabel time2 = new JLabel(times.get(1));
 		time2.setBounds(10, 61, 77, 20);
 		contentPane.add(time2);
-		
+
 		JLabel time3 = new JLabel(times.get(2));
 		time3.setBounds(10, 111, 77, 20);
 		contentPane.add(time3);
-		
+
 		JLabel time4 = new JLabel(times.get(3));
 		time4.setBounds(10, 142, 77, 20);
 		contentPane.add(time4);
-		
+
 		JLabel time5 = new JLabel(times.get(4));
 		time5.setBounds(10, 261, 77, 20);
 		contentPane.add(time5);
-		
+
 		JLabel time6 = new JLabel(times.get(5));
 		time6.setBounds(10, 292, 77, 20);
 		contentPane.add(time6);
-		
+
 		JLabel time7 = new JLabel(times.get(6));
 		time7.setBounds(10, 339, 77, 20);
 		contentPane.add(time7);
-		
+
 		JLabel time8 = new JLabel(times.get(7));
 		time8.setBounds(10, 370, 77, 20);
 		contentPane.add(time8);
-		
+
 		try {
 			JLabel time1Semi = new JLabel(STATICS.SEMI_FINAL.get(0).getTime1());
 			time1Semi.setBounds(136, 80, 77, 20);
 			contentPane.add(time1Semi);
-			
+
 			JLabel time2semi = new JLabel(STATICS.SEMI_FINAL.get(0).getTime2());
 			time2semi.setBounds(136, 111, 77, 20);
 			contentPane.add(time2semi);
-			
+
 			JLabel time3semi = new JLabel(STATICS.SEMI_FINAL.get(1).getTime1());
 			time3semi.setBounds(136, 308, 77, 20);
 			contentPane.add(time3semi);
-			
+
 			JLabel time4semi = new JLabel(STATICS.SEMI_FINAL.get(1).getTime2());
 			time4semi.setBounds(136, 339, 77, 20);
 			contentPane.add(time4semi);
@@ -175,7 +175,7 @@ public class Tabela extends JFrame {
 		textPane_13.setEditable(false);
 		textPane_13.setBounds(136, 339, 77, 20);
 		contentPane.add(textPane_13);
-		
+
 		JLabel label_12 = new JLabel("New label");
 		label_12.setBounds(10, 370, 77, 20);
 		contentPane.add(label_12);
