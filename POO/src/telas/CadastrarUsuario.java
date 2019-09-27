@@ -1,26 +1,25 @@
 package telas;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
-import beans.Usuario;
-import statics.statics;
-
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.SwingConstants;
 import java.awt.Font;
-import javax.swing.JTextField;
-import javax.swing.JTextArea;
-import javax.swing.JPasswordField;
-import javax.swing.JRadioButton;
-import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.List;
+
+import javax.swing.DefaultListModel;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
+
+import STATICS.STATICS;
+import beans.Grupo;
+import beans.Usuario;
 
 public class CadastrarUsuario extends JFrame {
 
@@ -37,7 +36,7 @@ public class CadastrarUsuario extends JFrame {
 		setResizable(false);
 		setTitle("CADASTRAR USUARIO");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 545, 491);
+		setBounds(100, 100, 545, 438);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -87,9 +86,33 @@ public class CadastrarUsuario extends JFrame {
 		passUserConfirm.setBounds(33, 313, 214, 28);
 		contentPane.add(passUserConfirm);
 
-		JRadioButton rdbtnAdmin = new JRadioButton("Admin");
-		rdbtnAdmin.setBounds(32, 364, 109, 23);
-		contentPane.add(rdbtnAdmin);
+		
+		
+		
+		DefaultListModel model = new DefaultListModel();
+		
+		
+		List<Grupo> a = STATICS.GRUPOS;
+		
+		
+		for (Grupo grupo : a) {
+			if(!(grupo.getUsuario().size() > 5)) {
+				model.addElement(grupo.getNome()); 
+			}
+		}
+		
+		JList list = new JList();
+		list.setModel(model);
+		list.setBounds(318, 113, 153, 228);
+		
+		contentPane.add(list);
+		
+		
+		
+		JLabel lblGruposDisponiveis = new JLabel("Grupos disponiveis");
+		lblGruposDisponiveis.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblGruposDisponiveis.setBounds(318, 77, 153, 28);
+		contentPane.add(lblGruposDisponiveis);
 
 		JButton btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.addMouseListener(new MouseAdapter() {
@@ -99,7 +122,7 @@ public class CadastrarUsuario extends JFrame {
 				String nome = txtNome.getText().trim();
 				String pss = String.valueOf(pssUser.getPassword()).trim();
 				String pssConfirm = String.valueOf(passUserConfirm.getPassword()).trim();
-				boolean isAdmin = rdbtnAdmin.isSelected();
+				
 
 				
 				if (!pss.equals(pssConfirm) || user.equals("") || pss.equals("") || pssConfirm.equals("") || nome.equals("")) {
@@ -112,9 +135,9 @@ public class CadastrarUsuario extends JFrame {
 				usuario.setUsuario(user);
 				usuario.setNome(nome);
 				usuario.setSenha(pss);
-				usuario.setAdmin(isAdmin);
-
-				statics.users.put(user, usuario);
+				usuario.setGrupo(STATICS.GRUPOS.get(list.getSelectedIndex()));
+				
+				STATICS.USERS.put(user, usuario);
 
 				JOptionPane.showMessageDialog(null, "Cadastrado com sucesso");
 				
@@ -122,11 +145,11 @@ public class CadastrarUsuario extends JFrame {
 				txtNome.setText("");
 				pssUser.setText("");
 				passUserConfirm.setText("");
-				rdbtnAdmin.setSelected(false);
 			}
 		});
-		btnCadastrar.setBounds(33, 414, 133, 23);
+		btnCadastrar.setBounds(33, 364, 214, 23);
 		contentPane.add(btnCadastrar);
+		
 
 	}
 }

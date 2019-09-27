@@ -4,7 +4,15 @@ public class Usuario {
 	private String nome;
 	private String usuario;
 	private String senha;
-	private boolean admin;
+	private Grupo grupo;
+
+	public Grupo getGrupo() {
+		return grupo;
+	}
+
+	public void setGrupo(Grupo grupo) {
+		this.grupo = grupo;
+	}
 
 	public String getNome() {
 		return nome;
@@ -28,14 +36,6 @@ public class Usuario {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
-	}
-
-	public boolean isAdmin() {
-		return admin;
-	}
-
-	public void setAdmin(boolean admin) {
-		this.admin = admin;
 	}
 
 }

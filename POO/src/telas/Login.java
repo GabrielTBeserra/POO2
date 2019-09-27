@@ -8,14 +8,15 @@ import java.util.Map;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import STATICS.STATICS;
 import beans.Usuario;
-import statics.statics;
 
 public class Login extends JFrame {
 
@@ -31,7 +32,7 @@ public class Login extends JFrame {
 		setTitle("Login");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 237, 309);
+		setBounds(100, 100, 237, 334);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -74,7 +75,7 @@ public class Login extends JFrame {
 			public void mouseClicked(MouseEvent arg0) {
 				String password = String.valueOf(passwordField.getPassword());
 				String usuario = textField.getText();
-				Map<String , Usuario> user = statics.users;
+				Map<String , Usuario> user = STATICS.USERS;
 			
 				
 				if (user.containsKey(usuario) && user.get(usuario).getSenha().equals(password)) {
@@ -82,11 +83,19 @@ public class Login extends JFrame {
 					menu.setVisible(true);
 					setVisible(false);
 					dispose();
+				} else {
+					if(STATICS.USERS.size() == 26) {
+						JOptionPane.showMessageDialog(null, "Limite de cadastros excedido!");
+						return;
+					}
+					CadastrarUsuario cadastrar = new CadastrarUsuario();
+					cadastrar.setVisible(true);
 				}
 				
 			}
 		});
 		btnEntrar.setBounds(132, 226, 89, 23);
 		contentPane.add(btnEntrar);
+	
 	}
 }
