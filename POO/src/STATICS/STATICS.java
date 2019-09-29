@@ -8,6 +8,9 @@ import beans.Jogo;
 import beans.Usuario;
 
 public class STATICS {
+	public static boolean ELIMINATORIA;
+	public static boolean ELIMINATORIA_SEMI;
+	public static boolean ELIMINATORIA_FINAL;
 	public static String NOME_TORNEIO;
 	public static Map<String, Usuario> USERS;
 	public static List<String> TIMES;

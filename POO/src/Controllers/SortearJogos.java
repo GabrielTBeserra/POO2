@@ -10,6 +10,12 @@ import telas.Tabela;
 
 public class SortearJogos {
 	public SortearJogos() {
+		if (STATICS.ELIMINATORIA) {
+			JOptionPane.showMessageDialog(null, "Tabela ja definida", "Error",
+					JOptionPane.ERROR_MESSAGE, null);
+			return;
+		}
+		
 		if (STATICS.TIMES.size() < 8) {
 			JOptionPane.showMessageDialog(null, "Limite minimo de times nao atingido", "Error",
 					JOptionPane.ERROR_MESSAGE, null);
@@ -34,6 +40,8 @@ public class SortearJogos {
 		jogo4.setTime1(STATICS.TIMES.get(6));
 		jogo4.setTime2(STATICS.TIMES.get(7));
 		STATICS.JOGOS.add(jogo4);
+		
+		STATICS.ELIMINATORIA = true;
 
 		new Tabela().setVisible(true);
 

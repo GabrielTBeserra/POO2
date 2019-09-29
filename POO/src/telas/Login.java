@@ -87,7 +87,7 @@ public class Login extends JFrame {
 						JOptionPane.showMessageDialog(null, "Limite de cadastros excedido!");
 						return;
 					}
-					CadastrarUsuario cadastrar = new CadastrarUsuario();
+					CadastroUsuarios cadastrar = new CadastroUsuarios();
 					cadastrar.setVisible(true);
 				}
 

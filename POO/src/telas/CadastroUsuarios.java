@@ -10,26 +10,26 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import Controllers.CadastrarUsuario;
 import STATICS.STATICS;
 import beans.Grupo;
-import beans.Usuario;
 
-public class CadastrarUsuario extends JFrame {
+public class CadastroUsuarios extends JFrame {
 
+	private static final long serialVersionUID = -5864495353448233840L;
 	private JPanel contentPane;
 	private JTextField txtUsuario;
 	private JTextField txtNome;
 	private JPasswordField pssUser;
 	private JPasswordField passUserConfirm;
 
-	public CadastrarUsuario() {
+	public CadastroUsuarios() {
 		setResizable(false);
 		setTitle("CADASTRAR USUARIO");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -83,7 +83,7 @@ public class CadastrarUsuario extends JFrame {
 		passUserConfirm.setBounds(33, 313, 214, 28);
 		contentPane.add(passUserConfirm);
 
-		DefaultListModel model = new DefaultListModel();
+		DefaultListModel<String> model = new DefaultListModel<String>();
 
 		List<Grupo> listaDeGrupos = STATICS.GRUPOS;
 
@@ -93,7 +93,7 @@ public class CadastrarUsuario extends JFrame {
 			}
 		}
 
-		JList list = new JList();
+		JList<String> list = new JList<String>();
 		list.setModel(model);
 		list.setBounds(318, 113, 153, 228);
 
@@ -108,32 +108,8 @@ public class CadastrarUsuario extends JFrame {
 		btnCadastrar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				String user = txtUsuario.getText().trim();
-				String nome = txtNome.getText().trim();
-				String pss = String.valueOf(pssUser.getPassword()).trim();
-				String pssConfirm = String.valueOf(passUserConfirm.getPassword()).trim();
-
-				if (STATICS.USERS.containsKey(user)) {
-					JOptionPane.showMessageDialog(null, "Usuario ja existente!!");
-					return;
-				}
-
-				if (!pss.equals(pssConfirm) || user.equals("") || pss.equals("") || pssConfirm.equals("")
-						|| nome.equals("") || list.getSelectedIndex() == -1) {
-					JOptionPane.showMessageDialog(null, "Informe todas informações necessarias!!");
-					return;
-				}
-
-				Usuario usuario = new Usuario();
-				usuario.setUsuario(user);
-				usuario.setNome(nome);
-				usuario.setSenha(pss);
-				usuario.setGrupo(STATICS.GRUPOS.get(list.getSelectedIndex()));
-
-				STATICS.USERS.put(user, usuario);
-
-				JOptionPane.showMessageDialog(null, "Cadastrado com sucesso");
-
+				new CadastrarUsuario(txtUsuario.getText() , txtNome.getText() , pssUser.getPassword() , passUserConfirm.getPassword() , list);
+				
 				txtUsuario.setText("");
 				txtNome.setText("");
 				pssUser.setText("");

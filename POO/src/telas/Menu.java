@@ -1,26 +1,25 @@
 package telas;
 
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import Controllers.FinalizarJogos;
+import Controllers.AbrirTabela;
+import Controllers.AdicionarGrupos;
+import Controllers.AdicionarTimes;
+import Controllers.DefinirFinal;
+import Controllers.DefinirSemi;
+import Controllers.NomeTorneio;
 import Controllers.SortearJogos;
-import STATICS.STATICS;
-import beans.Grupo;
 import beans.Usuario;
-
-import java.awt.Font;
-import javax.swing.JComboBox;
 
 public class Menu extends JFrame {
 
@@ -38,8 +37,18 @@ public class Menu extends JFrame {
 		JMenu mnTeste = new JMenu("OP\u00C7\u00D4ES");
 		menuBar.add(mnTeste);
 
-		JMenuItem mntmSair = new JMenuItem("Sair");
-		mntmSair.addActionListener(new ActionListener() {
+		JMenuItem btnAdicionarGrupos = new JMenuItem("Adicionar grupo");
+		JMenuItem btnDefinirNomeTorneio = new JMenuItem("Definir nome torneio");
+		JMenuItem btnAdicionarTimes = new JMenuItem("Adicionar time");
+		JMenuItem btnSortearEliminatoria = new JMenuItem("Eliminatoria");
+		JMenuItem btnSortearSemiFinal = new JMenuItem("Semi final");
+		JMenuItem btnSair = new JMenuItem("Sair");
+		JMenuItem btnTabela = new JMenuItem("Tabela");
+		JMenuItem btnSortearFinal = new JMenuItem("Final");
+		JMenu abaAdmin = new JMenu("ADMIN");
+		
+		
+		btnSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 				Login login = new Login();
 				login.setVisible(true);
@@ -47,97 +56,65 @@ public class Menu extends JFrame {
 				dispose();
 			}
 		});
-		mnTeste.add(mntmSair);
 
-		JMenu mnAdmin = new JMenu("ADMIN");
-		menuBar.add(mnAdmin);
-
-		JMenuItem novoUsuario = new JMenuItem("Adicionar grupo");
-		novoUsuario.addActionListener(new ActionListener() {
+		btnTabela.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
-				if (STATICS.GRUPOS.size() == 5) {
-					JOptionPane.showMessageDialog(null, "Limite de grupos atingido");
-					return;
-				}
-
-				String nomeGrupo = JOptionPane.showInputDialog(null,
-						"Informe o nome do grupo " + STATICS.GRUPOS.size());
-
-				Grupo grupo = new Grupo();
-				grupo.setUsuario(new ArrayList<Usuario>());
-				grupo.setNome(nomeGrupo);
-
-				STATICS.GRUPOS.add(grupo);
-				JOptionPane.showMessageDialog(null, "Grupo adicionado com sucesso!");
-
+				new AbrirTabela();
 			}
 		});
 
-		JMenuItem definirNomeTorneio = new JMenuItem("Definir nome torneio");
-		JMenuItem mntmAdicionarTime = new JMenuItem("Adicionar time");
-		JMenuItem mntmSortearTimes = new JMenuItem("Sortear times");
-		JMenuItem mntmFinalizarJogos = new JMenuItem("Finalizar jogos");
 
-		mntmAdicionarTime.addActionListener(new ActionListener() {
+		btnAdicionarGrupos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
-				if (STATICS.NOME_TORNEIO == null) {
-					JOptionPane.showMessageDialog(null, "Necessario definir o torneio");
-					return;
-				}
-
-				if (STATICS.TIMES.size() == 8) {
-					JOptionPane.showMessageDialog(null, "Limite de times atingido");
-					return;
-				}
-				String nomeTime = null;
-				try {
-					nomeTime = JOptionPane.showInputDialog(null, "Informe o nome do time " + STATICS.TIMES.size())
-							.trim();
-				} catch (Exception e) {
-					System.err.println(e.getMessage());
-				}
-
-				if (nomeTime.equals("") || nomeTime == null) {
-					return;
-				}
-
-				STATICS.TIMES.add(nomeTime);
-
-				JOptionPane.showMessageDialog(null, "Time adicionado com sucesso!");
+				new AdicionarGrupos();
 			}
 		});
 
-		definirNomeTorneio.addActionListener(new ActionListener() {
+		btnAdicionarTimes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
-				if (STATICS.NOME_TORNEIO != null) {
-					JOptionPane.showMessageDialog(null, "Nome ja definido!");
-					return;
-				}
-
-				String nomeDoTorneio = JOptionPane.showInputDialog(null, "Informe o nome torneio");
-
-				STATICS.NOME_TORNEIO = nomeDoTorneio;
-				JOptionPane.showMessageDialog(null, "Torneio definido!");
+				new AdicionarTimes();
 			}
 		});
 
-		mntmSortearTimes.addActionListener(new ActionListener() {
+		btnDefinirNomeTorneio.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				new NomeTorneio();
+			}
+		});
+
+		btnSortearEliminatoria.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 				new SortearJogos();
 			}
 		});
 
-		mntmFinalizarJogos.addActionListener(new ActionListener() {
+		btnSortearSemiFinal.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
-				new FinalizarJogos();
+				new DefinirSemi();
 			}
 		});
 
-		mnAdmin.add(definirNomeTorneio);
-		mnAdmin.add(novoUsuario);
-		mnAdmin.add(mntmAdicionarTime);
-		mnAdmin.add(mntmSortearTimes);
-		mnAdmin.add(mntmFinalizarJogos);
+		
+		btnSortearFinal.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				new DefinirFinal();
+
+			}
+		});
+		
+		
+		
+		abaAdmin.add(btnDefinirNomeTorneio);
+		abaAdmin.add(btnAdicionarGrupos);
+		abaAdmin.add(btnAdicionarTimes);
+		abaAdmin.add(btnSortearEliminatoria);
+		abaAdmin.add(btnSortearSemiFinal);
+		abaAdmin.add(btnSortearFinal);
+		mnTeste.add(btnTabela);
+		menuBar.add(abaAdmin);
+		mnTeste.add(btnSair);
+		
+		
 
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

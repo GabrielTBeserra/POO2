@@ -18,7 +18,10 @@ public class Starter {
 		STATICS.TIMES = new ArrayList<String>();
 		STATICS.JOGOS = new ArrayList<Jogo>();
 		STATICS.SEMI_FINAL = new ArrayList<Jogo>();
-
+		STATICS.FINAL = new ArrayList<Jogo>();
+		STATICS.ELIMINATORIA = false;
+		STATICS.ELIMINATORIA_SEMI = false;
+		STATICS.ELIMINATORIA_FINAL = false;
 		new AutoFill();
 
 		Login login = new Login();
