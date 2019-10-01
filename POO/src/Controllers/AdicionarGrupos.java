@@ -15,8 +15,7 @@ public class AdicionarGrupos {
 			return;
 		}
 
-		String nomeGrupo = JOptionPane.showInputDialog(null,
-				"Informe o nome do grupo " + STATICS.GRUPOS.size());
+		String nomeGrupo = JOptionPane.showInputDialog(null, "Informe o nome do grupo " + STATICS.GRUPOS.size());
 
 		Grupo grupo = new Grupo();
 		grupo.setUsuario(new ArrayList<Usuario>());

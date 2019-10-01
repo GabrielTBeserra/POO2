@@ -13,11 +13,10 @@ import telas.Tabela;
 public class DefinirFinal {
 	public DefinirFinal() {
 		if (STATICS.ELIMINATORIA_FINAL) {
-			JOptionPane.showMessageDialog(null, "final ja reportada", "Error",
-					JOptionPane.ERROR_MESSAGE, null);
+			JOptionPane.showMessageDialog(null, "final ja reportada", "Error", JOptionPane.ERROR_MESSAGE, null);
 			return;
 		}
-		
+
 		Random valorAleatorio = new Random();
 
 		for (Jogo jogo : STATICS.SEMI_FINAL) {
@@ -40,9 +39,8 @@ public class DefinirFinal {
 		jogo.setTime2(semi.get(1));
 		STATICS.FINAL.add(jogo);
 
-
 		STATICS.ELIMINATORIA_FINAL = true;
-		
+
 		new Tabela().setVisible(true);
 	}
 }

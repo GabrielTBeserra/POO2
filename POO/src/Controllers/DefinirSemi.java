@@ -14,11 +14,10 @@ public class DefinirSemi {
 	public DefinirSemi() {
 
 		if (STATICS.ELIMINATORIA_SEMI) {
-			JOptionPane.showMessageDialog(null, "Semi ja reportada", "Error",
-					JOptionPane.ERROR_MESSAGE, null);
+			JOptionPane.showMessageDialog(null, "Semi ja reportada", "Error", JOptionPane.ERROR_MESSAGE, null);
 			return;
 		}
-		
+
 		Random valorAleatorio = new Random();
 
 		for (Jogo jogo : STATICS.JOGOS) {
@@ -46,7 +45,7 @@ public class DefinirSemi {
 		STATICS.SEMI_FINAL.add(jogo2);
 
 		STATICS.ELIMINATORIA_SEMI = true;
-		
+
 		new Tabela().setVisible(true);
 	}
 }

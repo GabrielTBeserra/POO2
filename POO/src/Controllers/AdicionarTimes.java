@@ -17,8 +17,7 @@ public class AdicionarTimes {
 		}
 		String nomeTime = null;
 		try {
-			nomeTime = JOptionPane.showInputDialog(null, "Informe o nome do time " + STATICS.TIMES.size())
-					.trim();
+			nomeTime = JOptionPane.showInputDialog(null, "Informe o nome do time " + STATICS.TIMES.size()).trim();
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
 		}

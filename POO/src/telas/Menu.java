@@ -46,8 +46,7 @@ public class Menu extends JFrame {
 		JMenuItem btnTabela = new JMenuItem("Tabela");
 		JMenuItem btnSortearFinal = new JMenuItem("Final");
 		JMenu abaAdmin = new JMenu("ADMIN");
-		
-		
+
 		btnSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 				Login login = new Login();
@@ -62,7 +61,6 @@ public class Menu extends JFrame {
 				new AbrirTabela();
 			}
 		});
-
 
 		btnAdicionarGrupos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
@@ -94,16 +92,13 @@ public class Menu extends JFrame {
 			}
 		});
 
-		
 		btnSortearFinal.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 				new DefinirFinal();
 
 			}
 		});
-		
-		
-		
+
 		abaAdmin.add(btnDefinirNomeTorneio);
 		abaAdmin.add(btnAdicionarGrupos);
 		abaAdmin.add(btnAdicionarTimes);
@@ -113,8 +108,6 @@ public class Menu extends JFrame {
 		mnTeste.add(btnTabela);
 		menuBar.add(abaAdmin);
 		mnTeste.add(btnSair);
-		
-		
 
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

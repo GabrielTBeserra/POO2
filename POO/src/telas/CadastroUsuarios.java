@@ -108,8 +108,9 @@ public class CadastroUsuarios extends JFrame {
 		btnCadastrar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				new CadastrarUsuario(txtUsuario.getText() , txtNome.getText() , pssUser.getPassword() , passUserConfirm.getPassword() , list);
-				
+				new CadastrarUsuario(txtUsuario.getText(), txtNome.getText(), pssUser.getPassword(),
+						passUserConfirm.getPassword(), list);
+
 				txtUsuario.setText("");
 				txtNome.setText("");
 				pssUser.setText("");
