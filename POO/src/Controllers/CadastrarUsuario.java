@@ -1,9 +1,12 @@
 package Controllers;
 
+import java.util.ArrayList;
+
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 
 import STATICS.STATICS;
+import beans.Aposta;
 import beans.Usuario;
 
 public class CadastrarUsuario {
@@ -21,7 +24,7 @@ public class CadastrarUsuario {
 
 		if (!pss.equals(pssConfirm) || user.equals("") || pss.equals("") || pssConfirm.equals("") || nome.equals("")
 				|| list.getSelectedIndex() == -1) {
-			JOptionPane.showMessageDialog(null, "Informe todas informações necessarias!!");
+			JOptionPane.showMessageDialog(null, "Informe todas informaï¿½ï¿½es necessarias!!");
 			return;
 		}
 
@@ -30,6 +33,7 @@ public class CadastrarUsuario {
 		usuario.setNome(nome);
 		usuario.setSenha(pss);
 		usuario.setGrupo(STATICS.GRUPOS.get(list.getSelectedIndex()));
+		usuario.setApostas(new ArrayList<Aposta>());
 
 		STATICS.USERS.put(user, usuario);
 

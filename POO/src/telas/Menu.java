@@ -21,9 +21,13 @@ import Controllers.DefinirSemi;
 import Controllers.NomeTorneio;
 import Controllers.SortearJogos;
 import STATICS.STATICS;
+import beans.Aposta;
 import beans.Usuario;
 import javax.swing.JSpinner;
 import javax.swing.JButton;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.List;
 
 public class Menu extends JFrame {
 
@@ -236,26 +240,25 @@ public class Menu extends JFrame {
 		JSpinner semiSpinnerTime2 = new JSpinner();
 		JLabel lblSemiTime22 = new JLabel("TIME 2");
 		JSpinner semiSpinnerTime22 = new JSpinner();
-		
+
 		lblSemiJogo1.setBounds(10, 327, 66, 15);
-		lblSemiTime1.setBounds(10, 354, 66, 15);		
-		semiSpinnerTime1.setBounds(10, 378, 56, 20);		
-		lblSimeTime2.setBounds(137, 354, 66, 15);		
-		semiSpinnerTime2.setBounds(137, 378, 56, 20);		
-		lblSemiJogo2.setBounds(265, 327, 66, 15);		
-		lblSemiTime12.setBounds(265, 354, 66, 15);		
-		semiSpinnerTime12.setBounds(265, 378, 56, 20);		
-		lblSemiTime22.setBounds(392, 354, 66, 15);		
+		lblSemiTime1.setBounds(10, 354, 66, 15);
+		semiSpinnerTime1.setBounds(10, 378, 56, 20);
+		lblSimeTime2.setBounds(137, 354, 66, 15);
+		semiSpinnerTime2.setBounds(137, 378, 56, 20);
+		lblSemiJogo2.setBounds(265, 327, 66, 15);
+		lblSemiTime12.setBounds(265, 354, 66, 15);
+		semiSpinnerTime12.setBounds(265, 378, 56, 20);
+		lblSemiTime22.setBounds(392, 354, 66, 15);
 		semiSpinnerTime22.setBounds(392, 378, 56, 20);
-		
-		if(!STATICS.ELIMINATORIA_SEMI == !STATICS.ELIMINATORIA_FINAL) {
+
+		if (!STATICS.ELIMINATORIA_SEMI == !STATICS.ELIMINATORIA_FINAL) {
 			semiSpinnerTime1.setEnabled(false);
 			semiSpinnerTime2.setEnabled(false);
 			semiSpinnerTime12.setEnabled(false);
 			semiSpinnerTime22.setEnabled(false);
 		}
-		
-		
+
 		contentPane.add(lblSemiJogo1);
 		contentPane.add(lblSemiTime1);
 		contentPane.add(semiSpinnerTime1);
@@ -266,7 +269,6 @@ public class Menu extends JFrame {
 		contentPane.add(semiSpinnerTime12);
 		contentPane.add(lblSemiTime22);
 		contentPane.add(semiSpinnerTime22);
-		
 
 		// FINAL
 		JLabel lblFinal = new JLabel("FINAL");
@@ -274,32 +276,91 @@ public class Menu extends JFrame {
 		JSpinner finalSpinner1 = new JSpinner();
 		JLabel lblFInalTime2 = new JLabel("TIME 2");
 		JSpinner finalSpinner2 = new JSpinner();
-		
-		
+
 		lblFinal.setBounds(208, 430, 66, 17);
 		lblFinalTime1.setBounds(148, 459, 66, 15);
 		finalSpinner1.setBounds(148, 483, 56, 20);
 		lblFInalTime2.setBounds(275, 459, 66, 15);
 		finalSpinner2.setBounds(275, 483, 56, 20);
-		
-		
-		if(!STATICS.ELIMINATORIA_FINAL) {
+
+		if (!STATICS.ELIMINATORIA_FINAL) {
 			finalSpinner1.setEnabled(false);
 			finalSpinner2.setEnabled(false);
 		}
-		
+
 		contentPane.add(lblFinal);
 		contentPane.add(lblFinalTime1);
 		contentPane.add(finalSpinner1);
 		contentPane.add(lblFInalTime2);
 		contentPane.add(finalSpinner2);
-		
-		
-		
-		
+
 		JButton btnApostar = new JButton("Apostar");
+		btnApostar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				if (!STATICS.ELIMINATORIA != !STATICS.ELIMINATORIA_SEMI) {
+					Aposta aposta = new Aposta();
+					aposta.setJogo("Time A vs Time B");
+					aposta.setNomeTime1("Time A");
+					aposta.setNomeTime2("Time B");
+					int placar1 = (Integer) eliSpinnerTime1.getValue();
+					aposta.setPlacar1(placar1);
+					aposta.setPlacar2((Integer) eliSpinnerTime2.getValue());
+
+					usuario.getApostas().add(aposta);
+					Aposta aposta2 = new Aposta();
+					aposta2.setJogo("Time A vs Time B");
+					aposta2.setNomeTime1("Time A");
+					aposta2.setNomeTime2("Time B");
+					aposta2.setPlacar1((Integer) eliSpinnerTime12.getValue());
+					aposta2.setPlacar2((Integer) eliSpinnerTime22.getValue());
+
+					usuario.getApostas().add(aposta2);
+					Aposta aposta3 = new Aposta();
+					aposta3.setJogo("Time A vs Time B");
+					aposta3.setNomeTime1("Time A");
+					aposta3.setNomeTime2("Time B");
+					aposta3.setPlacar1((Integer) eliSpinnerTime13.getValue());
+					aposta3.setPlacar2((Integer) eliSpinnerTime23.getValue());
+
+					usuario.getApostas().add(aposta3);
+					Aposta aposta4 = new Aposta();
+					aposta4.setJogo("Time A vs Time B");
+					aposta4.setNomeTime1("Time A");
+					aposta4.setNomeTime2("Time B");
+					aposta4.setPlacar1((Integer) eliSpinnerTime14.getValue());
+					aposta4.setPlacar2((Integer) eliSpinnerTime24.getValue());
+
+					usuario.getApostas().add(aposta4);
+
+				} else if (!STATICS.ELIMINATORIA_SEMI != !STATICS.ELIMINATORIA_FINAL) {
+
+				} else if (STATICS.ELIMINATORIA_FINAL) {
+
+				}
+				
+				List<Aposta> a = usuario.getApostas();
+				
+				
+				
+				for (Aposta aposta : a) {
+					System.out.println(aposta.getJogo());
+					System.out.println(aposta.getPlacar1());
+					System.out.println(aposta.getPlacar2());
+				}
+
+			}
+		});
+		
+		if (STATICS.ELIMINATORIA || STATICS.ELIMINATORIA_SEMI || STATICS.ELIMINATORIA_FINAL) {
+			
+		} else {
+			btnApostar.setEnabled(false);
+		}
+		
 		btnApostar.setBounds(188, 530, 114, 25);
 		contentPane.add(btnApostar);
-		
+
 	}
 }

@@ -6,7 +6,7 @@ public class Aposta {
 	private String nomeTime2;
 	private int placar1;
 	private int placar2;
-	private Jogo jogo;
+	private String jogo;
 
 	public String getTime() {
 		return time;
@@ -16,11 +16,11 @@ public class Aposta {
 		this.time = time;
 	}
 
-	public Jogo getJogo() {
+	public String getJogo() {
 		return jogo;
 	}
 
-	public void setJogo(Jogo jogo) {
+	public void setJogo(String jogo) {
 		this.jogo = jogo;
 	}
 
