@@ -342,8 +342,6 @@ public class Menu extends JFrame {
 				
 				List<Aposta> a = usuario.getApostas();
 				
-				
-				
 				for (Aposta aposta : a) {
 					System.out.println(aposta.getJogo());
 					System.out.println(aposta.getPlacar1());
@@ -354,7 +352,8 @@ public class Menu extends JFrame {
 		});
 		
 		if (STATICS.ELIMINATORIA || STATICS.ELIMINATORIA_SEMI || STATICS.ELIMINATORIA_FINAL) {
-			
+			btnApostar.setEnabled(true);
+			//ADICIONAR LOGICA PARA NAO PERMITIR MAIS DE UMA APOSTA EM CADA CATEGORIA-
 		} else {
 			btnApostar.setEnabled(false);
 		}
