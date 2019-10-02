@@ -168,6 +168,7 @@ public class Tabela extends JFrame {
 			final2.setBounds(256, 188, 77, 20);
 			contentPane.add(final2);
 			final2.setText(STATICS.FINAL.get(0).getTime1());
+
 		} catch (Exception e) {
 			JTextPane final1 = new JTextPane();
 			final1.setEditable(false);
@@ -180,6 +181,22 @@ public class Tabela extends JFrame {
 			final2.setBounds(256, 188, 77, 20);
 			contentPane.add(final2);
 			final2.setText("");
+		}
+
+		try {
+			JTextPane campeao = new JTextPane();
+			campeao.setText((String) null);
+			campeao.setEditable(false);
+			campeao.setBounds(391, 202, 77, 20);
+			contentPane.add(campeao);
+			campeao.setText(STATICS.CAMPEAO);
+		} catch (Exception e) {
+			JTextPane campeao = new JTextPane();
+			campeao.setText((String) null);
+			campeao.setEditable(false);
+			campeao.setBounds(391, 202, 77, 20);
+			contentPane.add(campeao);
+			campeao.setText("");
 		}
 
 	}

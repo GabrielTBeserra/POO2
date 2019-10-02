@@ -18,6 +18,11 @@ public class DefinirSemi {
 			return;
 		}
 
+		if (STATICS.JOGOS.size() < 1) {
+			JOptionPane.showMessageDialog(null, "Tabela ainda nao completa", "Error", JOptionPane.ERROR_MESSAGE, null);
+			return;
+		}
+
 		Random valorAleatorio = new Random();
 
 		for (Jogo jogo : STATICS.JOGOS) {

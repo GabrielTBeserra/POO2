@@ -12,8 +12,13 @@ import telas.Tabela;
 
 public class DefinirFinal {
 	public DefinirFinal() {
-		if (STATICS.ELIMINATORIA_FINAL) {
+		if (STATICS.RESULTADO) {
 			JOptionPane.showMessageDialog(null, "final ja reportada", "Error", JOptionPane.ERROR_MESSAGE, null);
+			return;
+		}
+
+		if (STATICS.SEMI_FINAL.size() < 1) {
+			JOptionPane.showMessageDialog(null, "Tabela ainda nao completa", "Error", JOptionPane.ERROR_MESSAGE, null);
 			return;
 		}
 
@@ -38,8 +43,6 @@ public class DefinirFinal {
 		jogo.setTime1(semi.get(0));
 		jogo.setTime2(semi.get(1));
 		STATICS.FINAL.add(jogo);
-
-		STATICS.ELIMINATORIA_FINAL = true;
 
 		new Tabela().setVisible(true);
 	}

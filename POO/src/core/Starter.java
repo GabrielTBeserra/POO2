@@ -22,6 +22,8 @@ public class Starter {
 		STATICS.ELIMINATORIA = false;
 		STATICS.ELIMINATORIA_SEMI = false;
 		STATICS.ELIMINATORIA_FINAL = false;
+		STATICS.RESULTADO = false;
+		STATICS.CAMPEAO = null;
 		new AutoFill();
 
 		Login login = new Login();
