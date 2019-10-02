@@ -20,6 +20,7 @@ import Controllers.DefinirFinal;
 import Controllers.DefinirSemi;
 import Controllers.NomeTorneio;
 import Controllers.SortearJogos;
+import STATICS.STATICS;
 import beans.Usuario;
 import javax.swing.JSpinner;
 import javax.swing.JButton;
@@ -144,184 +145,161 @@ public class Menu extends JFrame {
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblNewLabel_2.setBounds(88, 45, 95, 25);
 		contentPane.add(lblNewLabel_2);
-		
-		
+
 		// ELIMINATORIA
 		JLabel lblEliJogo1 = new JLabel("Jogo 1");
 		JLabel lblEliTime1 = new JLabel("TIME 1");
 		JLabel lblEliTime2 = new JLabel("TIME 2");
+		JSpinner eliSpinnerTime1 = new JSpinner();
+		JSpinner eliSpinnerTime2 = new JSpinner();
+
+		JLabel lblEliJogo2 = new JLabel("Jogo 2");
+		JLabel lblEliTime12 = new JLabel("TIME 1");
+		JLabel lblEliTime22 = new JLabel("TIME 2");
+		JSpinner eliSpinnerTime12 = new JSpinner();
+		JSpinner eliSpinnerTime22 = new JSpinner();
+
+		JLabel lblEliJogo3 = new JLabel("Jogo 3");
+		JLabel lblEliTime13 = new JLabel("TIME 1");
+		JLabel lblEliTime23 = new JLabel("TIME 2");
+		JSpinner eliSpinnerTime13 = new JSpinner();
+		JSpinner eliSpinnerTime23 = new JSpinner();
+
+		JLabel lblEliJogo4 = new JLabel("Jogo 4");
+		JLabel lblEliTime14 = new JLabel("TIME 1");
+		JLabel lblEliTIme24 = new JLabel("TIME 2");
+		JSpinner eliSpinnerTime14 = new JSpinner();
+		JSpinner eliSpinnerTime24 = new JSpinner();
 
 		lblEliJogo1.setBounds(12, 105, 66, 15);
-
 		lblEliTime1.setBounds(12, 132, 66, 15);
-	
-	
 		lblEliTime2.setBounds(139, 132, 66, 15);
-		
-		
-		JSpinner spinner = new JSpinner();
-		spinner.setBounds(12, 156, 56, 20);
-		
-		
-		JSpinner spinner_1 = new JSpinner();
-		spinner_1.setBounds(139, 156, 56, 20);
-		
-		
-		JLabel label = new JLabel("Jogo 1");
-		label.setBounds(275, 105, 66, 15);
-		
-		
-		JLabel label_1 = new JLabel("TIME 1");
-		label_1.setBounds(275, 132, 66, 15);
-		
-		
-		JSpinner spinner_2 = new JSpinner();
-		spinner_2.setBounds(275, 156, 56, 20);
-		
-		
-		JSpinner spinner_3 = new JSpinner();
-		spinner_3.setBounds(402, 156, 56, 20);
-		
-		
-		JLabel label_2 = new JLabel("TIME 2");
-		label_2.setBounds(402, 132, 66, 15);
-		
-		
-		JLabel label_3 = new JLabel("Jogo 1");
-		label_3.setBounds(10, 205, 66, 15);
-		
-		
-		JLabel label_4 = new JLabel("TIME 1");
-		label_4.setBounds(10, 232, 66, 15);
-		
-		
-		JSpinner spinner_4 = new JSpinner();
-		spinner_4.setBounds(10, 256, 56, 20);
-		
-		
-		JSpinner spinner_5 = new JSpinner();
-		spinner_5.setBounds(137, 256, 56, 20);
-		
-		
-		JLabel label_5 = new JLabel("TIME 2");
-		label_5.setBounds(137, 232, 66, 15);
-		
-		
-		JLabel label_6 = new JLabel("Jogo 1");
-		label_6.setBounds(275, 205, 66, 15);
-		
-		
-		JLabel label_7 = new JLabel("TIME 1");
-		label_7.setBounds(275, 232, 66, 15);
-		
-		
-		JSpinner spinner_6 = new JSpinner();
-		spinner_6.setBounds(275, 256, 56, 20);
-		
-		
-		JSpinner spinner_7 = new JSpinner();
-		spinner_7.setBounds(402, 256, 56, 20);
-		
-		
-		JLabel label_8 = new JLabel("TIME 2");
-		label_8.setBounds(402, 232, 66, 15);
-		
-		
-		
-		
-		
+		eliSpinnerTime1.setBounds(12, 156, 56, 20);
+		eliSpinnerTime2.setBounds(139, 156, 56, 20);
+		lblEliJogo2.setBounds(275, 105, 66, 15);
+		lblEliTime12.setBounds(275, 132, 66, 15);
+		eliSpinnerTime12.setBounds(275, 156, 56, 20);
+		eliSpinnerTime22.setBounds(402, 156, 56, 20);
+		lblEliTime22.setBounds(402, 132, 66, 15);
+		lblEliJogo3.setBounds(10, 205, 66, 15);
+		lblEliTime13.setBounds(10, 232, 66, 15);
+		eliSpinnerTime13.setBounds(10, 256, 56, 20);
+		eliSpinnerTime23.setBounds(137, 256, 56, 20);
+		lblEliTime23.setBounds(137, 232, 66, 15);
+		lblEliJogo4.setBounds(275, 205, 66, 15);
+		lblEliTime14.setBounds(275, 232, 66, 15);
+		eliSpinnerTime14.setBounds(275, 256, 56, 20);
+		eliSpinnerTime24.setBounds(402, 256, 56, 20);
+		lblEliTIme24.setBounds(402, 232, 66, 15);
+
 		contentPane.add(lblEliTime1);
 		contentPane.add(lblEliJogo1);
 		contentPane.add(lblEliTime2);
-		contentPane.add(spinner);
-		contentPane.add(spinner_1);
-		contentPane.add(label);
-		contentPane.add(label_1);
-		contentPane.add(label_1);
-		contentPane.add(spinner_2);
-		contentPane.add(label_8);
-		contentPane.add(spinner_3);
-		contentPane.add(spinner_7);
-		contentPane.add(spinner_6);
-		contentPane.add(label_7);
-		contentPane.add(label_2);
-		contentPane.add(label_3);
-		contentPane.add(label_4);
-		contentPane.add(spinner_5);
-		contentPane.add(spinner_4);
-		contentPane.add(label_5);
-		contentPane.add(label_6);
-		
-		
-		
-		
-		
-		
+		contentPane.add(eliSpinnerTime1);
+		contentPane.add(eliSpinnerTime2);
+		contentPane.add(lblEliJogo2);
+		contentPane.add(lblEliTime12);
+		contentPane.add(lblEliTime12);
+		contentPane.add(eliSpinnerTime12);
+		contentPane.add(lblEliTIme24);
+		contentPane.add(eliSpinnerTime22);
+		contentPane.add(eliSpinnerTime24);
+		contentPane.add(eliSpinnerTime14);
+		contentPane.add(lblEliTime14);
+		contentPane.add(lblEliTime22);
+		contentPane.add(lblEliJogo3);
+		contentPane.add(lblEliTime13);
+		contentPane.add(eliSpinnerTime23);
+		contentPane.add(eliSpinnerTime13);
+		contentPane.add(lblEliTime23);
+		contentPane.add(lblEliJogo4);
+
+		if (!STATICS.ELIMINATORIA == !STATICS.ELIMINATORIA_SEMI) {
+			eliSpinnerTime1.setEnabled(false);
+			eliSpinnerTime2.setEnabled(false);
+			eliSpinnerTime12.setEnabled(false);
+			eliSpinnerTime22.setEnabled(false);
+			eliSpinnerTime13.setEnabled(false);
+			eliSpinnerTime23.setEnabled(false);
+			eliSpinnerTime14.setEnabled(false);
+			eliSpinnerTime24.setEnabled(false);
+		}
+
 		// SEMI FINAL
+		JLabel lblSemiJogo1 = new JLabel("SEMI 1");
+		JLabel lblSemiTime1 = new JLabel("TIME 1");
+		JLabel lblSimeTime2 = new JLabel("TIME 2");
+		JLabel lblSemiJogo2 = new JLabel("SEMI 2");
+		JLabel lblSemiTime12 = new JLabel("TIME 1");
+		JSpinner semiSpinnerTime1 = new JSpinner();
+		JSpinner semiSpinnerTime12 = new JSpinner();
+		JSpinner semiSpinnerTime2 = new JSpinner();
+		JLabel lblSemiTime22 = new JLabel("TIME 2");
+		JSpinner semiSpinnerTime22 = new JSpinner();
 		
-		JLabel lblSemi = new JLabel("SEMI 1");
-		lblSemi.setBounds(10, 327, 66, 15);
-		contentPane.add(lblSemi);
+		lblSemiJogo1.setBounds(10, 327, 66, 15);
+		lblSemiTime1.setBounds(10, 354, 66, 15);		
+		semiSpinnerTime1.setBounds(10, 378, 56, 20);		
+		lblSimeTime2.setBounds(137, 354, 66, 15);		
+		semiSpinnerTime2.setBounds(137, 378, 56, 20);		
+		lblSemiJogo2.setBounds(265, 327, 66, 15);		
+		lblSemiTime12.setBounds(265, 354, 66, 15);		
+		semiSpinnerTime12.setBounds(265, 378, 56, 20);		
+		lblSemiTime22.setBounds(392, 354, 66, 15);		
+		semiSpinnerTime22.setBounds(392, 378, 56, 20);
 		
-		JLabel label_10 = new JLabel("TIME 1");
-		label_10.setBounds(10, 354, 66, 15);
-		contentPane.add(label_10);
+		if(!STATICS.ELIMINATORIA_SEMI == !STATICS.ELIMINATORIA_FINAL) {
+			semiSpinnerTime1.setEnabled(false);
+			semiSpinnerTime2.setEnabled(false);
+			semiSpinnerTime12.setEnabled(false);
+			semiSpinnerTime22.setEnabled(false);
+		}
 		
-		JSpinner spinner_8 = new JSpinner();
-		spinner_8.setBounds(10, 378, 56, 20);
-		contentPane.add(spinner_8);
 		
-		JLabel label_11 = new JLabel("TIME 2");
-		label_11.setBounds(137, 354, 66, 15);
-		contentPane.add(label_11);
+		contentPane.add(lblSemiJogo1);
+		contentPane.add(lblSemiTime1);
+		contentPane.add(semiSpinnerTime1);
+		contentPane.add(lblSimeTime2);
+		contentPane.add(semiSpinnerTime2);
+		contentPane.add(lblSemiJogo2);
+		contentPane.add(lblSemiTime12);
+		contentPane.add(semiSpinnerTime12);
+		contentPane.add(lblSemiTime22);
+		contentPane.add(semiSpinnerTime22);
 		
-		JSpinner spinner_9 = new JSpinner();
-		spinner_9.setBounds(137, 378, 56, 20);
-		contentPane.add(spinner_9);
-		
-		JLabel lblSemi_1 = new JLabel("SEMI 2");
-		lblSemi_1.setBounds(265, 327, 66, 15);
-		contentPane.add(lblSemi_1);
-		
-		JLabel label_12 = new JLabel("TIME 1");
-		label_12.setBounds(265, 354, 66, 15);
-		contentPane.add(label_12);
-		
-		JSpinner spinner_10 = new JSpinner();
-		spinner_10.setBounds(265, 378, 56, 20);
-		contentPane.add(spinner_10);
-		
-		JLabel label_13 = new JLabel("TIME 2");
-		label_13.setBounds(392, 354, 66, 15);
-		contentPane.add(label_13);
-		
-		JSpinner spinner_11 = new JSpinner();
-		spinner_11.setBounds(392, 378, 56, 20);
-		contentPane.add(spinner_11);
-		
+
 		// FINAL
 		JLabel lblFinal = new JLabel("FINAL");
+		JLabel lblFinalTime1 = new JLabel("TIME 1");
+		JSpinner finalSpinner1 = new JSpinner();
+		JLabel lblFInalTime2 = new JLabel("TIME 2");
+		JSpinner finalSpinner2 = new JSpinner();
+		
+		
 		lblFinal.setBounds(208, 430, 66, 17);
+		lblFinalTime1.setBounds(148, 459, 66, 15);
+		finalSpinner1.setBounds(148, 483, 56, 20);
+		lblFInalTime2.setBounds(275, 459, 66, 15);
+		finalSpinner2.setBounds(275, 483, 56, 20);
+		
+		
+		if(!STATICS.ELIMINATORIA_FINAL) {
+			finalSpinner1.setEnabled(false);
+			finalSpinner2.setEnabled(false);
+		}
+		
 		contentPane.add(lblFinal);
+		contentPane.add(lblFinalTime1);
+		contentPane.add(finalSpinner1);
+		contentPane.add(lblFInalTime2);
+		contentPane.add(finalSpinner2);
 		
-		JLabel label_14 = new JLabel("TIME 1");
-		label_14.setBounds(148, 459, 66, 15);
-		contentPane.add(label_14);
 		
-		JSpinner spinner_12 = new JSpinner();
-		spinner_12.setBounds(148, 483, 56, 20);
-		contentPane.add(spinner_12);
 		
-		JLabel label_15 = new JLabel("TIME 2");
-		label_15.setBounds(275, 459, 66, 15);
-		contentPane.add(label_15);
-		
-		JSpinner spinner_13 = new JSpinner();
-		spinner_13.setBounds(275, 483, 56, 20);
-		contentPane.add(spinner_13);
 		
 		JButton btnApostar = new JButton("Apostar");
 		btnApostar.setBounds(188, 530, 114, 25);
 		contentPane.add(btnApostar);
+		
 	}
 }

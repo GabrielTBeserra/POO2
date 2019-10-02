@@ -1,5 +1,8 @@
 package STATICS;
 
+import java.util.ArrayList;
+
+import beans.Aposta;
 import beans.Grupo;
 import beans.Usuario;
 
@@ -9,6 +12,7 @@ public class AutoFill {
 		admin.setNome("admin");
 		admin.setSenha("admin");
 		admin.setUsuario("admin");
+		admin.setApostas(new ArrayList<Aposta>());
 		admin.setGrupo(new Grupo());
 
 		STATICS.USERS.put("admin", admin);
