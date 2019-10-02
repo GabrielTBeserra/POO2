@@ -9,10 +9,20 @@ import javax.swing.JTextPane;
 import javax.swing.border.EmptyBorder;
 
 import STATICS.STATICS;
+import beans.Usuario;
 
 public class Tabela extends JFrame {
+	private Usuario usuario;
 
 	private JPanel contentPane;
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 
 	public Tabela() {
 		List<String> times = STATICS.TIMES;

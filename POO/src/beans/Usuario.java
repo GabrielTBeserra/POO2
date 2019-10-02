@@ -7,25 +7,9 @@ public class Usuario {
 	private String usuario;
 	private String senha;
 	private Grupo grupo;
-	private List<Aposta> apostas;
-
-	
-	
-	public List<Aposta> getApostas() {
-		return apostas;
-	}
-
-	public void setApostas(List<Aposta> apostas) {
-		this.apostas = apostas;
-	}
-
-	public Grupo getGrupo() {
-		return grupo;
-	}
-
-	public void setGrupo(Grupo grupo) {
-		this.grupo = grupo;
-	}
+	private List<Aposta> eliminatoria;
+	private List<Aposta> semifinal;
+	private Aposta apostaFinal;
 
 	public String getNome() {
 		return nome;
@@ -50,5 +34,40 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+
+	public Grupo getGrupo() {
+		return grupo;
+	}
+
+	public void setGrupo(Grupo grupo) {
+		this.grupo = grupo;
+	}
+
+	public List<Aposta> getEliminatoria() {
+		return eliminatoria;
+	}
+
+	public void setEliminatoria(List<Aposta> eliminatoria) {
+		this.eliminatoria = eliminatoria;
+	}
+
+	public List<Aposta> getSemifinal() {
+		return semifinal;
+	}
+
+	public void setSemifinal(List<Aposta> semifinal) {
+		this.semifinal = semifinal;
+	}
+
+	public Aposta getApostaFinal() {
+		return apostaFinal;
+	}
+
+	public void setApostaFinal(Aposta apostaFinal) {
+		this.apostaFinal = apostaFinal;
+	}
+
+	
+
 
 }

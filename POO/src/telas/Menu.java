@@ -32,6 +32,20 @@ import java.util.List;
 public class Menu extends JFrame {
 
 	private JPanel contentPane;
+	private JLabel lblEliTime1;
+	private JLabel lblEliTime12;
+	private JLabel lblEliTime2;
+	private JLabel lblEliTime13;
+	private JLabel lblEliTime22;
+	private JLabel lblEliTime23;
+	private JLabel lblEliTime14;
+	private JLabel lblEliTIme24;
+	private JLabel lblSemiTime1;
+	private JLabel lblSimeTime2;
+	private JLabel lblSemiTime12;
+	private JLabel lblSemiTime22;
+	private JLabel lblFinalTime1;
+	private JLabel lblFInalTime2;
 
 	public Menu(Usuario usuario) {
 		setResizable(false);
@@ -67,7 +81,7 @@ public class Menu extends JFrame {
 
 		btnTabela.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
-				new AbrirTabela();
+				new AbrirTabela(usuario);
 			}
 		});
 
@@ -151,27 +165,44 @@ public class Menu extends JFrame {
 		contentPane.add(lblNewLabel_2);
 
 		// ELIMINATORIA
+
+		try {
+			this.lblEliTime1 = new JLabel(STATICS.TIMES.get(0));
+			this.lblEliTime2 = new JLabel(STATICS.TIMES.get(1));
+			this.lblEliTime12 = new JLabel(STATICS.TIMES.get(2));
+			this.lblEliTime22 = new JLabel(STATICS.TIMES.get(3));
+			this.lblEliTime13 = new JLabel(STATICS.TIMES.get(4));
+			this.lblEliTime23 = new JLabel(STATICS.TIMES.get(5));
+			this.lblEliTime14 = new JLabel(STATICS.TIMES.get(6));
+			this.lblEliTIme24 = new JLabel(STATICS.TIMES.get(7));
+		} catch (Exception e) {
+			this.lblEliTime1 = new JLabel("Nao definido");
+			this.lblEliTime2 = new JLabel("Nao definido");
+			this.lblEliTime12 = new JLabel("Nao definido");
+			this.lblEliTime22 = new JLabel("Nao definido");
+			this.lblEliTime13 = new JLabel("Nao definido");
+			this.lblEliTime23 = new JLabel("Nao definido");
+			this.lblEliTime14 = new JLabel("Nao definido");
+			this.lblEliTIme24 = new JLabel("Nao definido");
+		}
+
 		JLabel lblEliJogo1 = new JLabel("Jogo 1");
-		JLabel lblEliTime1 = new JLabel("TIME 1");
-		JLabel lblEliTime2 = new JLabel("TIME 2");
+
 		JSpinner eliSpinnerTime1 = new JSpinner();
 		JSpinner eliSpinnerTime2 = new JSpinner();
 
 		JLabel lblEliJogo2 = new JLabel("Jogo 2");
-		JLabel lblEliTime12 = new JLabel("TIME 1");
-		JLabel lblEliTime22 = new JLabel("TIME 2");
+
 		JSpinner eliSpinnerTime12 = new JSpinner();
 		JSpinner eliSpinnerTime22 = new JSpinner();
 
 		JLabel lblEliJogo3 = new JLabel("Jogo 3");
-		JLabel lblEliTime13 = new JLabel("TIME 1");
-		JLabel lblEliTime23 = new JLabel("TIME 2");
+
 		JSpinner eliSpinnerTime13 = new JSpinner();
 		JSpinner eliSpinnerTime23 = new JSpinner();
 
 		JLabel lblEliJogo4 = new JLabel("Jogo 4");
-		JLabel lblEliTime14 = new JLabel("TIME 1");
-		JLabel lblEliTIme24 = new JLabel("TIME 2");
+
 		JSpinner eliSpinnerTime14 = new JSpinner();
 		JSpinner eliSpinnerTime24 = new JSpinner();
 
@@ -230,15 +261,27 @@ public class Menu extends JFrame {
 		}
 
 		// SEMI FINAL
+
+		try {
+			this.lblSemiTime1 = new JLabel(STATICS.SEMI_FINAL.get(0).getTime1());
+			this.lblSimeTime2 = new JLabel(STATICS.SEMI_FINAL.get(0).getTime2());
+			this.lblSemiTime12 = new JLabel(STATICS.SEMI_FINAL.get(1).getTime1());
+			this.lblSemiTime22 = new JLabel(STATICS.SEMI_FINAL.get(1).getTime2());
+		} catch (Exception e) {
+			this.lblSemiTime1 = new JLabel("Nao definido");
+			this.lblSimeTime2 = new JLabel("Nao definido");
+			this.lblSemiTime12 = new JLabel("Nao definido");
+			this.lblSemiTime22 = new JLabel("Nao definido");
+		}
+
 		JLabel lblSemiJogo1 = new JLabel("SEMI 1");
-		JLabel lblSemiTime1 = new JLabel("TIME 1");
-		JLabel lblSimeTime2 = new JLabel("TIME 2");
+
 		JLabel lblSemiJogo2 = new JLabel("SEMI 2");
-		JLabel lblSemiTime12 = new JLabel("TIME 1");
+
 		JSpinner semiSpinnerTime1 = new JSpinner();
 		JSpinner semiSpinnerTime12 = new JSpinner();
 		JSpinner semiSpinnerTime2 = new JSpinner();
-		JLabel lblSemiTime22 = new JLabel("TIME 2");
+
 		JSpinner semiSpinnerTime22 = new JSpinner();
 
 		lblSemiJogo1.setBounds(10, 327, 66, 15);
@@ -271,10 +314,19 @@ public class Menu extends JFrame {
 		contentPane.add(semiSpinnerTime22);
 
 		// FINAL
+
+		try {
+			this.lblFinalTime1 = new JLabel(STATICS.FINAL.get(0).getTime1());
+			this.lblFInalTime2 = new JLabel(STATICS.FINAL.get(0).getTime2());
+		} catch (Exception e) {
+			this.lblFinalTime1 = new JLabel("Nao definido");
+			this.lblFInalTime2 = new JLabel("Nao definido");
+		}
+
 		JLabel lblFinal = new JLabel("FINAL");
-		JLabel lblFinalTime1 = new JLabel("TIME 1");
+
 		JSpinner finalSpinner1 = new JSpinner();
-		JLabel lblFInalTime2 = new JLabel("TIME 2");
+
 		JSpinner finalSpinner2 = new JSpinner();
 
 		lblFinal.setBounds(208, 430, 66, 17);
@@ -298,17 +350,15 @@ public class Menu extends JFrame {
 		btnApostar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
-				if (!STATICS.ELIMINATORIA != !STATICS.ELIMINATORIA_SEMI) {
+
+				if ((!STATICS.ELIMINATORIA != !STATICS.ELIMINATORIA_SEMI) && usuario.getEliminatoria().size() < 4) {
 					Aposta aposta = new Aposta();
 					aposta.setJogo("Time A vs Time B");
 					aposta.setNomeTime1("Time A");
 					aposta.setNomeTime2("Time B");
-					int placar1 = (Integer) eliSpinnerTime1.getValue();
-					aposta.setPlacar1(placar1);
+					aposta.setPlacar1((Integer) eliSpinnerTime1.getValue());
 					aposta.setPlacar2((Integer) eliSpinnerTime2.getValue());
 
-					usuario.getApostas().add(aposta);
 					Aposta aposta2 = new Aposta();
 					aposta2.setJogo("Time A vs Time B");
 					aposta2.setNomeTime1("Time A");
@@ -316,7 +366,6 @@ public class Menu extends JFrame {
 					aposta2.setPlacar1((Integer) eliSpinnerTime12.getValue());
 					aposta2.setPlacar2((Integer) eliSpinnerTime22.getValue());
 
-					usuario.getApostas().add(aposta2);
 					Aposta aposta3 = new Aposta();
 					aposta3.setJogo("Time A vs Time B");
 					aposta3.setNomeTime1("Time A");
@@ -324,7 +373,6 @@ public class Menu extends JFrame {
 					aposta3.setPlacar1((Integer) eliSpinnerTime13.getValue());
 					aposta3.setPlacar2((Integer) eliSpinnerTime23.getValue());
 
-					usuario.getApostas().add(aposta3);
 					Aposta aposta4 = new Aposta();
 					aposta4.setJogo("Time A vs Time B");
 					aposta4.setNomeTime1("Time A");
@@ -332,16 +380,41 @@ public class Menu extends JFrame {
 					aposta4.setPlacar1((Integer) eliSpinnerTime14.getValue());
 					aposta4.setPlacar2((Integer) eliSpinnerTime24.getValue());
 
-					usuario.getApostas().add(aposta4);
+					usuario.getEliminatoria().add(aposta);
+					usuario.getEliminatoria().add(aposta2);
+					usuario.getEliminatoria().add(aposta3);
+					usuario.getEliminatoria().add(aposta4);
 
-				} else if (!STATICS.ELIMINATORIA_SEMI != !STATICS.ELIMINATORIA_FINAL) {
+				} else if ((!STATICS.ELIMINATORIA_SEMI != !STATICS.ELIMINATORIA_FINAL) && usuario.getSemifinal().size() < 2) {
+					Aposta aposta = new Aposta();
+					aposta.setJogo("Time A vs Time B");
+					aposta.setNomeTime1("Time A");
+					aposta.setNomeTime2("Time B");
+					aposta.setPlacar1((Integer) semiSpinnerTime1.getValue());
+					aposta.setPlacar2((Integer) semiSpinnerTime2.getValue());
 
-				} else if (STATICS.ELIMINATORIA_FINAL) {
+					Aposta aposta2 = new Aposta();
+					aposta2.setJogo("Time A vs Time B");
+					aposta2.setNomeTime1("Time A");
+					aposta2.setNomeTime2("Time B");
+					aposta2.setPlacar1((Integer) semiSpinnerTime12.getValue());
+					aposta2.setPlacar2((Integer) semiSpinnerTime22.getValue());
 
+					usuario.getSemifinal().add(aposta);
+					usuario.getSemifinal().add(aposta2);
+				} else if (STATICS.ELIMINATORIA_FINAL && usuario.getApostaFinal() != null) {
+					Aposta aposta = new Aposta();
+					aposta.setJogo("Time A vs Time B");
+					aposta.setNomeTime1("Time A");
+					aposta.setNomeTime2("Time B");
+					aposta.setPlacar1((Integer) finalSpinner1.getValue());
+					aposta.setPlacar2((Integer) finalSpinner2.getValue());
+					
+					usuario.setApostaFinal(aposta);
 				}
-				
-				List<Aposta> a = usuario.getApostas();
-				
+
+				List<Aposta> a = usuario.getEliminatoria();
+
 				for (Aposta aposta : a) {
 					System.out.println(aposta.getJogo());
 					System.out.println(aposta.getPlacar1());
@@ -350,14 +423,14 @@ public class Menu extends JFrame {
 
 			}
 		});
-		
+
 		if (STATICS.ELIMINATORIA || STATICS.ELIMINATORIA_SEMI || STATICS.ELIMINATORIA_FINAL) {
 			btnApostar.setEnabled(true);
-			//ADICIONAR LOGICA PARA NAO PERMITIR MAIS DE UMA APOSTA EM CADA CATEGORIA-
+			// ADICIONAR LOGICA PARA NAO PERMITIR MAIS DE UMA APOSTA EM CADA CATEGORIA-
 		} else {
 			btnApostar.setEnabled(false);
 		}
-		
+
 		btnApostar.setBounds(188, 530, 114, 25);
 		contentPane.add(btnApostar);
 

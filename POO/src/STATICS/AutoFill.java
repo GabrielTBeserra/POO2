@@ -12,7 +12,9 @@ public class AutoFill {
 		admin.setNome("admin");
 		admin.setSenha("admin");
 		admin.setUsuario("admin");
-		admin.setApostas(new ArrayList<Aposta>());
+		admin.setSemifinal(new ArrayList<Aposta>());
+		admin.setEliminatoria(new ArrayList<Aposta>());
+		
 		admin.setGrupo(new Grupo());
 
 		STATICS.USERS.put("admin", admin);

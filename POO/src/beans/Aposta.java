@@ -1,20 +1,11 @@
 package beans;
 
 public class Aposta {
-	private String time;
 	private String nomeTime1;
 	private String nomeTime2;
 	private int placar1;
 	private int placar2;
 	private String jogo;
-
-	public String getTime() {
-		return time;
-	}
-
-	public void setTime(String time) {
-		this.time = time;
-	}
 
 	public String getJogo() {
 		return jogo;
