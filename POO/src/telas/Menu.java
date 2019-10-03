@@ -28,6 +28,8 @@ import Controllers.SortearJogos;
 import STATICS.STATICS;
 import beans.Aposta;
 import beans.Usuario;
+import javax.swing.JRadioButton;
+import javax.swing.JSeparator;
 
 public class Menu extends JFrame {
 
@@ -440,6 +442,14 @@ public class Menu extends JFrame {
 		label.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		label.setBounds(250, 18, 105, 14);
 		contentPane.add(label);
+		
+		JSeparator separator = new JSeparator();
+		separator.setBounds(0, 301, 513, 2);
+		contentPane.add(separator);
+		
+		JSeparator separator_2 = new JSeparator();
+		separator_2.setBounds(0, 417, 513, 2);
+		contentPane.add(separator_2);
 
 	}
 }

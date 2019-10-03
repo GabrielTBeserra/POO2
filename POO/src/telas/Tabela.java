@@ -262,6 +262,7 @@ public class Tabela extends JFrame {
 		int aposta1 = usuario.getEliminatoria().get(index).getPlacar1();
 		int aposta2 = usuario.getEliminatoria().get(index).getPlacar2();
 
+		atualizarPontos(resul1, resul2, aposta1, aposta2);
 		return "Resultado: " + resul1 + " X " + resul2 + " Aposta: " + aposta1 + "X" + aposta2;
 	}
 
@@ -283,18 +284,30 @@ public class Tabela extends JFrame {
 		int aposta1 = usuario.getApostaFinal().getPlacar1();
 		int aposta2 = usuario.getApostaFinal().getPlacar2();
 
+		atualizarPontos(resul1, resul2, aposta1, aposta2);
 		return "Resultado: " + resul1 + " X " + resul2 + " Aposta: " + aposta1 + "X" + aposta2;
 
 	}
 
 	private void atualizarPontos(int resul1, int resul2, int aposta1, int aposta2) {
+		
 		if (resul1 == aposta1 && resul2 == aposta2) {
 			int pontos = usuario.getPontuacao();
 			usuario.setPontuacao(pontos += 10);
 		}
-		if (resul1 == aposta1 && resul2 == aposta2) {
-			int pontos = usuario.getPontuacao();
-			usuario.setPontuacao(pontos += 5);
+		
+		if(resul1 > resul2) {
+			if(aposta1 > aposta2) {
+				int pontos = usuario.getPontuacao();
+				usuario.setPontuacao(pontos += 5);
+			}
 		}
+		if(resul2 > resul1) {
+			if(aposta2 > aposta1) {
+				int pontos = usuario.getPontuacao();
+				usuario.setPontuacao(pontos += 5);
+			}
+		}
+		
 	}
 }
