@@ -3,7 +3,10 @@ package telas;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -11,6 +14,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JSpinner;
 import javax.swing.border.EmptyBorder;
 
 import Controllers.AbrirTabela;
@@ -24,11 +28,6 @@ import Controllers.SortearJogos;
 import STATICS.STATICS;
 import beans.Aposta;
 import beans.Usuario;
-import javax.swing.JSpinner;
-import javax.swing.JButton;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.util.List;
 
 public class Menu extends JFrame {
 
@@ -136,7 +135,7 @@ public class Menu extends JFrame {
 		abaAdmin.add(btnSortearSemiFinal);
 		abaAdmin.add(btnSortearFinal);
 		mnTeste.add(btnTabela);
-		if(usuario.getUsuario().toLowerCase().equals("admin")) {
+		if (usuario.getUsuario().toLowerCase().equals("admin")) {
 			menuBar.add(abaAdmin);
 		}
 		abaAdmin.add(btnResultado);
@@ -416,7 +415,7 @@ public class Menu extends JFrame {
 
 					usuario.setApostaFinal(aposta);
 				}
-				
+
 				JOptionPane.showMessageDialog(null, "Aposta feita com sucesso!");
 				btnApostar.setVisible(false);
 
@@ -431,6 +430,16 @@ public class Menu extends JFrame {
 
 		btnApostar.setBounds(188, 530, 114, 25);
 		contentPane.add(btnApostar);
+		
+		JLabel lblSeusPontos = new JLabel("Seus pontos");
+		lblSeusPontos.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblSeusPontos.setBounds(152, 11, 122, 25);
+		contentPane.add(lblSeusPontos);
+		
+		JLabel label = new JLabel(usuario.getPontuacao() + "");
+		label.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		label.setBounds(250, 18, 105, 14);
+		contentPane.add(label);
 
 	}
 }

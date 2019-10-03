@@ -14,7 +14,7 @@ import beans.Usuario;
 public class Tabela extends JFrame {
 	public Tabela() {
 	}
-	
+
 	private Usuario usuario;
 
 	private JPanel contentPane;
@@ -218,11 +218,11 @@ public class Tabela extends JFrame {
 
 		System.out.println(usuario);
 		if (this.usuario != null && STATICS.ELIMINATORIA_SEMI) {
-			
+
 			JLabel lblNewLabel = new JLabel(gerarPLacar(0));
 			lblNewLabel.setBounds(93, 50, 210, 14);
 			contentPane.add(lblNewLabel);
-			
+
 			JLabel label = new JLabel(gerarPLacar(1));
 			label.setBounds(97, 131, 210, 14);
 			contentPane.add(label);
@@ -230,15 +230,14 @@ public class Tabela extends JFrame {
 			JLabel label_7 = new JLabel(gerarPLacar(2));
 			label_7.setBounds(93, 281, 210, 14);
 			contentPane.add(label_7);
-			
+
 			JLabel label_8 = new JLabel(gerarPLacar(3));
 			label_8.setBounds(93, 359, 210, 14);
 			contentPane.add(label_8);
 
-			
 		}
-		
-		if(this.usuario != null && STATICS.ELIMINATORIA_FINAL) {
+
+		if (this.usuario != null && STATICS.ELIMINATORIA_FINAL) {
 			JLabel label_10 = new JLabel(gerarPLacarSemi(0));
 			label_10.setBounds(279, 95, 210, 14);
 			contentPane.add(label_10);
@@ -246,37 +245,56 @@ public class Tabela extends JFrame {
 			JLabel label_11 = new JLabel(gerarPLacarSemi(1));
 			label_11.setBounds(279, 323, 210, 14);
 			contentPane.add(label_11);
-			
-			
-
 
 		}
-		
-		if(this.usuario != null && STATICS.RESULTADO) {
+
+		if (this.usuario != null && STATICS.RESULTADO) {
 			JLabel label_9 = new JLabel(gerarPLacarFinal(0));
 			label_9.setBounds(332, 208, 210, 14);
 			contentPane.add(label_9);
 		}
 
 	}
-	
+
 	private String gerarPLacar(int index) {
-		return "Resultado: " + STATICS.JOGOS.get(index).getPontosTime1() + " X "
-				+ STATICS.JOGOS.get(index).getPontosTime2() + " Aposta: "
-				+ usuario.getEliminatoria().get(index).getPlacar1() + "X"
-				+ usuario.getEliminatoria().get(index).getPlacar2();
+		int resul1 = STATICS.JOGOS.get(index).getPontosTime1();
+		int resul2 = STATICS.JOGOS.get(index).getPontosTime2();
+		int aposta1 = usuario.getEliminatoria().get(index).getPlacar1();
+		int aposta2 = usuario.getEliminatoria().get(index).getPlacar2();
+
+		return "Resultado: " + resul1 + " X " + resul2 + " Aposta: " + aposta1 + "X" + aposta2;
 	}
-	
+
 	private String gerarPLacarSemi(int index) {
-		return "Resultado: " + STATICS.SEMI_FINAL.get(index).getPontosTime1() + " X "
-				+ STATICS.SEMI_FINAL.get(index).getPontosTime2() + " Aposta: "
-				+ usuario.getSemifinal().get(index).getPlacar1() + "X"
-				+ usuario.getSemifinal().get(index).getPlacar2();
+		int resul1 = STATICS.SEMI_FINAL.get(index).getPontosTime1();
+		int resul2 = STATICS.SEMI_FINAL.get(index).getPontosTime2();
+		int aposta1 = usuario.getSemifinal().get(index).getPlacar1();
+		int aposta2 = usuario.getSemifinal().get(index).getPlacar2();
+
+		atualizarPontos(resul1, resul2, aposta1, aposta2);
+
+		return "Resultado: " + resul1 + " X " + resul2 + " Aposta: " + aposta1 + "X" + aposta2;
+
 	}
+
 	private String gerarPLacarFinal(int index) {
-		return "Resultado: " + STATICS.FINAL.get(index).getPontosTime1() + " X "
-				+ STATICS.FINAL.get(index).getPontosTime2() + " Aposta: "
-				+ usuario.getApostaFinal().getPlacar1() + "X"
-				+ usuario.getApostaFinal().getPlacar2();
+		int resul1 = STATICS.FINAL.get(index).getPontosTime1();
+		int resul2 = STATICS.FINAL.get(index).getPontosTime2();
+		int aposta1 = usuario.getApostaFinal().getPlacar1();
+		int aposta2 = usuario.getApostaFinal().getPlacar2();
+
+		return "Resultado: " + resul1 + " X " + resul2 + " Aposta: " + aposta1 + "X" + aposta2;
+
+	}
+
+	private void atualizarPontos(int resul1, int resul2, int aposta1, int aposta2) {
+		if (resul1 == aposta1 && resul2 == aposta2) {
+			int pontos = usuario.getPontuacao();
+			usuario.setPontuacao(pontos += 10);
+		}
+		if (resul1 == aposta1 && resul2 == aposta2) {
+			int pontos = usuario.getPontuacao();
+			usuario.setPontuacao(pontos += 5);
+		}
 	}
 }

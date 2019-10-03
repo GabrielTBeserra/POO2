@@ -5,6 +5,7 @@ import java.util.List;
 public class Usuario {
 	private String nome;
 	private String usuario;
+	private int pontuacao;
 	private String senha;
 	private Grupo grupo;
 	private List<Aposta> eliminatoria;
@@ -67,7 +68,12 @@ public class Usuario {
 		this.apostaFinal = apostaFinal;
 	}
 
-	
+	public int getPontuacao() {
+		return pontuacao;
+	}
 
+	public void setPontuacao(int pontuacao) {
+		this.pontuacao = pontuacao;
+	}
 
 }
