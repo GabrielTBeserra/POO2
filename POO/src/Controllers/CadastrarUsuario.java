@@ -35,6 +35,7 @@ public class CadastrarUsuario {
 		usuario.setGrupo(STATICS.GRUPOS.get(list.getSelectedIndex()));
 		usuario.setEliminatoria(new ArrayList<Aposta>());
 		usuario.setSemifinal(new ArrayList<Aposta>());
+		usuario.setApostaFinal(new Aposta());
 
 		STATICS.USERS.put(user, usuario);
 

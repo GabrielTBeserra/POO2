@@ -12,18 +12,7 @@ import telas.Login;
 
 public class Starter {
 	public static void main(String[] args) {
-		STATICS.USERS = new HashMap<String, Usuario>();
-		STATICS.TIMES = new ArrayList<String>();
-		STATICS.GRUPOS = new ArrayList<Grupo>();
-		STATICS.TIMES = new ArrayList<String>();
-		STATICS.JOGOS = new ArrayList<Jogo>();
-		STATICS.SEMI_FINAL = new ArrayList<Jogo>();
-		STATICS.FINAL = new ArrayList<Jogo>();
-		STATICS.ELIMINATORIA = false;
-		STATICS.ELIMINATORIA_SEMI = false;
-		STATICS.ELIMINATORIA_FINAL = false;
-		STATICS.RESULTADO = false;
-		STATICS.CAMPEAO = null;
+		
 		new AutoFill();
 
 		Login login = new Login();

@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
@@ -135,7 +136,9 @@ public class Menu extends JFrame {
 		abaAdmin.add(btnSortearSemiFinal);
 		abaAdmin.add(btnSortearFinal);
 		mnTeste.add(btnTabela);
-		menuBar.add(abaAdmin);
+		if(usuario.getUsuario().toLowerCase().equals("admin")) {
+			menuBar.add(abaAdmin);
+		}
 		abaAdmin.add(btnResultado);
 		mnTeste.add(btnSair);
 
@@ -413,14 +416,17 @@ public class Menu extends JFrame {
 
 					usuario.setApostaFinal(aposta);
 				}
+				
+				JOptionPane.showMessageDialog(null, "Aposta feita com sucesso!");
+				btnApostar.setVisible(false);
 
 			}
 		});
 
 		if (STATICS.ELIMINATORIA || STATICS.ELIMINATORIA_SEMI || STATICS.ELIMINATORIA_FINAL) {
-			btnApostar.setEnabled(true);
+			btnApostar.setVisible(true);
 		} else {
-			btnApostar.setEnabled(false);
+			btnApostar.setVisible(false);
 		}
 
 		btnApostar.setBounds(188, 530, 114, 25);
