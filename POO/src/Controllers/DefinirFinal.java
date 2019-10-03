@@ -46,6 +46,8 @@ public class DefinirFinal {
 		
 		STATICS.ELIMINATORIA_FINAL = true;
 
-		new Tabela().setVisible(true);
+		Tabela tabela = new Tabela();
+		tabela.carregarTabela();
+		tabela.abrirTela();
 	}
 }

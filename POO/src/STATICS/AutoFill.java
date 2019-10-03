@@ -14,6 +14,7 @@ public class AutoFill {
 		admin.setUsuario("admin");
 		admin.setSemifinal(new ArrayList<Aposta>());
 		admin.setEliminatoria(new ArrayList<Aposta>());
+		admin.setApostaFinal(new Aposta());
 		
 		admin.setGrupo(new Grupo());
 

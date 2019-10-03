@@ -42,7 +42,9 @@ public class SortearJogos {
 
 		STATICS.ELIMINATORIA = true;
 
-		new Tabela().setVisible(true);
+		Tabela tabela = new Tabela();
+		tabela.carregarTabela();
+		tabela.abrirTela();
 
 	}
 }

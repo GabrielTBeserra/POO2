@@ -51,6 +51,8 @@ public class DefinirSemi {
 
 		STATICS.ELIMINATORIA_SEMI = true;
 
-		new Tabela().setVisible(true);
+		Tabela tabela = new Tabela();
+		tabela.carregarTabela();
+		tabela.abrirTela();
 	}
 }

@@ -12,6 +12,9 @@ import STATICS.STATICS;
 import beans.Usuario;
 
 public class Tabela extends JFrame {
+	public Tabela() {
+	}
+	
 	private Usuario usuario;
 
 	private JPanel contentPane;
@@ -24,13 +27,17 @@ public class Tabela extends JFrame {
 		this.usuario = usuario;
 	}
 
-	public Tabela() {
+	public void abrirTela() {
+		this.setVisible(true);
+	}
+
+	public void carregarTabela() {
 		List<String> times = STATICS.TIMES;
 
 		setResizable(false);
 		setTitle("TABELA");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 545, 438);
+		setBounds(100, 100, 766, 438);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -197,7 +204,7 @@ public class Tabela extends JFrame {
 			JTextPane campeao = new JTextPane();
 			campeao.setText((String) null);
 			campeao.setEditable(false);
-			campeao.setBounds(391, 202, 77, 20);
+			campeao.setBounds(504, 208, 77, 20);
 			contentPane.add(campeao);
 			campeao.setText(STATICS.CAMPEAO);
 		} catch (Exception e) {
@@ -209,5 +216,67 @@ public class Tabela extends JFrame {
 			campeao.setText("");
 		}
 
+		System.out.println(usuario);
+		if (this.usuario != null && STATICS.ELIMINATORIA_SEMI) {
+			
+			JLabel lblNewLabel = new JLabel(gerarPLacar(0));
+			lblNewLabel.setBounds(93, 50, 210, 14);
+			contentPane.add(lblNewLabel);
+			
+			JLabel label = new JLabel(gerarPLacar(1));
+			label.setBounds(97, 131, 210, 14);
+			contentPane.add(label);
+
+			JLabel label_7 = new JLabel(gerarPLacar(2));
+			label_7.setBounds(93, 281, 210, 14);
+			contentPane.add(label_7);
+			
+			JLabel label_8 = new JLabel(gerarPLacar(3));
+			label_8.setBounds(93, 359, 210, 14);
+			contentPane.add(label_8);
+
+			
+		}
+		
+		if(this.usuario != null && STATICS.ELIMINATORIA_FINAL) {
+			JLabel label_10 = new JLabel(gerarPLacarSemi(0));
+			label_10.setBounds(279, 95, 210, 14);
+			contentPane.add(label_10);
+
+			JLabel label_11 = new JLabel(gerarPLacarSemi(1));
+			label_11.setBounds(279, 323, 210, 14);
+			contentPane.add(label_11);
+			
+			
+
+
+		}
+		
+		if(this.usuario != null && STATICS.RESULTADO) {
+			JLabel label_9 = new JLabel(gerarPLacarFinal(0));
+			label_9.setBounds(332, 208, 210, 14);
+			contentPane.add(label_9);
+		}
+
+	}
+	
+	private String gerarPLacar(int index) {
+		return "Resultado: " + STATICS.JOGOS.get(index).getPontosTime1() + " X "
+				+ STATICS.JOGOS.get(index).getPontosTime2() + " Aposta: "
+				+ usuario.getEliminatoria().get(index).getPlacar1() + "X"
+				+ usuario.getEliminatoria().get(index).getPlacar2();
+	}
+	
+	private String gerarPLacarSemi(int index) {
+		return "Resultado: " + STATICS.SEMI_FINAL.get(index).getPontosTime1() + " X "
+				+ STATICS.SEMI_FINAL.get(index).getPontosTime2() + " Aposta: "
+				+ usuario.getSemifinal().get(index).getPlacar1() + "X"
+				+ usuario.getSemifinal().get(index).getPlacar2();
+	}
+	private String gerarPLacarFinal(int index) {
+		return "Resultado: " + STATICS.FINAL.get(index).getPontosTime1() + " X "
+				+ STATICS.FINAL.get(index).getPontosTime2() + " Aposta: "
+				+ usuario.getApostaFinal().getPlacar1() + "X"
+				+ usuario.getApostaFinal().getPlacar2();
 	}
 }

@@ -385,7 +385,8 @@ public class Menu extends JFrame {
 					usuario.getEliminatoria().add(aposta3);
 					usuario.getEliminatoria().add(aposta4);
 
-				} else if ((!STATICS.ELIMINATORIA_SEMI != !STATICS.ELIMINATORIA_FINAL) && usuario.getSemifinal().size() < 2) {
+				} else if ((!STATICS.ELIMINATORIA_SEMI != !STATICS.ELIMINATORIA_FINAL)
+						&& usuario.getSemifinal().size() < 2) {
 					Aposta aposta = new Aposta();
 					aposta.setJogo("Time A vs Time B");
 					aposta.setNomeTime1("Time A");
@@ -409,16 +410,8 @@ public class Menu extends JFrame {
 					aposta.setNomeTime2("Time B");
 					aposta.setPlacar1((Integer) finalSpinner1.getValue());
 					aposta.setPlacar2((Integer) finalSpinner2.getValue());
-					
+
 					usuario.setApostaFinal(aposta);
-				}
-
-				List<Aposta> a = usuario.getEliminatoria();
-
-				for (Aposta aposta : a) {
-					System.out.println(aposta.getJogo());
-					System.out.println(aposta.getPlacar1());
-					System.out.println(aposta.getPlacar2());
 				}
 
 			}
@@ -426,7 +419,6 @@ public class Menu extends JFrame {
 
 		if (STATICS.ELIMINATORIA || STATICS.ELIMINATORIA_SEMI || STATICS.ELIMINATORIA_FINAL) {
 			btnApostar.setEnabled(true);
-			// ADICIONAR LOGICA PARA NAO PERMITIR MAIS DE UMA APOSTA EM CADA CATEGORIA-
 		} else {
 			btnApostar.setEnabled(false);
 		}

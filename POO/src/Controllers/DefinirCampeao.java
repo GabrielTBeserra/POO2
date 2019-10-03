@@ -12,7 +12,9 @@ public class DefinirCampeao {
 	public DefinirCampeao() {
 		if (STATICS.RESULTADO) {
 			JOptionPane.showMessageDialog(null, "O torneio ja terminou", "Error", JOptionPane.ERROR_MESSAGE, null);
-			new Tabela().setVisible(true);
+			Tabela tabela = new Tabela();
+			tabela.carregarTabela();
+			tabela.abrirTela();
 			return;
 		}
 
@@ -38,6 +40,8 @@ public class DefinirCampeao {
 
 		STATICS.RESULTADO = true;
 
-		new Tabela().setVisible(true);
+		Tabela tabela = new Tabela();
+		tabela.carregarTabela();
+		tabela.abrirTela();
 	}
 }

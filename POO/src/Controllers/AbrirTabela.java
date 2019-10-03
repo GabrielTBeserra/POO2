@@ -12,8 +12,11 @@ public class AbrirTabela {
 			JOptionPane.showMessageDialog(null, "Tabela ainda nao definida", "Error", JOptionPane.ERROR_MESSAGE, null);
 			return;
 		}
+		
+		System.out.println(usuario);
 		Tabela tabela = new Tabela();
-		tabela.setVisible(true);
 		tabela.setUsuario(usuario);
+		tabela.carregarTabela();
+		tabela.abrirTela();
 	}
 }
